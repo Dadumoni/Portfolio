@@ -1,99 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Coder | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Company Name] - Portfolio</title>
   <style>
-    html {
-      scroll-behavior: smooth;
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #222;
     }
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00bcd4;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #00bcd4, #3f51b5);
+      color: #fff;
+    }
+    .hero h2 {
+      font-size: 42px;
+      margin: 0 0 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      background: #fff;
+      color: #111;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #f0f0f0;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+    .services, .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans">
-  <!-- Navbar -->
-  <nav class="flex justify-center items-center px-6 py-4 bg-gray-900 fixed w-full top-0 shadow-lg z-50">
-    <h1 class="text-xl font-bold tracking-wide">Pranab <span class="text-purple-500">Sonowal</span></h1>
-  </nav>
+<body>
+  <header>
+    <h1>[Company Name]</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-6">
-    <h2 class="text-4xl md:text-6xl font-bold mb-4">Hey, I'm <span class="text-purple-500">Pranab Sonowal</span></h2>
-    <p class="text-lg text-gray-400 max-w-xl mb-6">A passionate developer who codes with vibe ⚡. I build clean, modern, and functional web apps.</p>
+  <section class="hero">
+    <h2>We Build the Future of Technology</h2>
+    <p>Web Development • App Development • AI Automations</p>
+    <a href="#contact" class="btn">Get in Touch</a>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="px-6 py-20 max-w-5xl mx-auto text-center fade-up">
-    <h3 class="text-3xl font-semibold mb-6">About Me</h3>
-    <p class="text-gray-400 leading-relaxed">I'm a vibe-driven coder who enjoys blending creativity with logic. Whether it's web apps, automation, or playful side projects, I bring energy and detail into everything I build. Always vibing, always shipping 🚀.</p>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="px-6 py-20 max-w-5xl mx-auto text-center fade-up">
-    <h3 class="text-3xl font-semibold mb-10">Skills</h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">HTML</div>
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">CSS / Tailwind</div>
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">JavaScript</div>
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">Python</div>
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">Node.js</div>
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">React</div>
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">MongoDB</div>
-      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">Git</div>
+  <section id="services">
+    <h3>Our Services</h3>
+    <div class="services">
+      <div class="card">
+        <h4>🌐 Web Development</h4>
+        <p>Responsive, modern, and scalable websites tailored for your business needs.</p>
+      </div>
+      <div class="card">
+        <h4>📱 App Development</h4>
+        <p>Cross-platform mobile apps for iOS & Android with seamless user experience.</p>
+      </div>
+      <div class="card">
+        <h4>🤖 AI Automations</h4>
+        <p>Leverage AI to automate workflows, save time, and boost productivity.</p>
+      </div>
+      <div class="card">
+        <h4>☁️ Cloud Solutions</h4>
+        <p>Secure and scalable cloud integration for businesses of all sizes.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="px-6 py-20 bg-gray-900 text-center fade-up">
-    <h3 class="text-3xl font-semibold mb-6">Contact Me</h3>
-    <p class="text-gray-400 mb-8">Let’s vibe and build something awesome together ✨</p>
-    <form action="#" method="POST" class="max-w-xl mx-auto space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500">
-      <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500">
-      <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500"></textarea>
-      <button type="submit" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl font-medium shadow-lg">Send Message</button>
-    </form>
+  <section id="skills">
+    <h3>Our Skills</h3>
+    <div class="skills">
+      <div class="card">HTML5 / CSS3 / JavaScript</div>
+      <div class="card">React.js / Next.js</div>
+      <div class="card">Node.js / Express.js</div>
+      <div class="card">Python / Django / Flask</div>
+      <div class="card">Java / Kotlin</div>
+      <div class="card">Swift (iOS)</div>
+      <div class="card">SQL / MongoDB / Firebase</div>
+      <div class="card">TensorFlow / PyTorch</div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-6 text-center text-gray-500 bg-gray-950 border-t border-gray-800">
-    © 2025 Pranab Sonowal. All rights reserved.
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p style="text-align:center;">Email: info@[company].com | Phone: +123 456 7890</p>
+  </section>
+
+  <footer>
+    <p>© 2025 [Company Name]. All Rights Reserved.</p>
   </footer>
-
-  <!-- WhatsApp Floating Icon -->
-  <a href="https://wa.me/916001675270" target="_blank" class="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:bg-green-600 transition">
-    <i data-feather="message-circle" class="text-white"></i>
-  </a>
-
-  <script>
-    feather.replace();
-
-    // Scroll reveal effect
-    const faders = document.querySelectorAll('.fade-up');
-    const appearOptions = { threshold: 0.2 };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        appearOnScroll.unobserve(entry.target);
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  </script>
 </body>
 </html>

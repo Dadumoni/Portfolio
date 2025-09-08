@@ -5,19 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[Company Name] - Portfolio</title>
   <style>
+    /* General Styles */
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
+      font-family: "Poppins", sans-serif;
+      background: #f9f9fb;
       color: #222;
+      scroll-behavior: smooth;
     }
+
+    /* Header */
     header {
-      background: #111;
+      background: linear-gradient(90deg, #3f51b5, #673ab7);
       color: #fff;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header h1 {
       margin: 0;
@@ -31,21 +38,26 @@
       transition: color 0.3s;
     }
     nav a:hover {
-      color: #00bcd4;
+      color: #ffeb3b;
     }
+
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #00bcd4, #3f51b5);
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #2196f3, #9c27b0);
       color: #fff;
+      animation: fadeIn 2s ease-in-out;
     }
     .hero h2 {
       font-size: 42px;
       margin: 0 0 20px;
+      animation: slideUp 1s ease-out;
     }
     .hero p {
       font-size: 18px;
       margin-bottom: 30px;
+      animation: slideUp 1.2s ease-out;
     }
     .btn {
       background: #fff;
@@ -54,11 +66,15 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
+      animation: fadeIn 2s ease;
     }
     .btn:hover {
       background: #f0f0f0;
+      transform: scale(1.05);
     }
+
+    /* Sections */
     section {
       padding: 60px 20px;
       max-width: 1100px;
@@ -68,7 +84,10 @@
       text-align: center;
       margin-bottom: 40px;
       font-size: 28px;
+      color: #3f51b5;
     }
+
+    /* Cards */
     .services, .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -79,12 +98,74 @@
       border-radius: 12px;
       padding: 30px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: 0.8s ease;
     }
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
+
+    /* Contact Form */
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      width: 100%;
+    }
+    button {
+      padding: 14px;
+      border: none;
+      background: linear-gradient(90deg, #3f51b5, #9c27b0);
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-decoration: none;
+      transition: transform 0.3s;
+      z-index: 1000;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
     footer {
       background: #111;
       color: #ccc;
@@ -92,9 +173,20 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes slideUp {
+      from {transform: translateY(30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>[Company Name]</h1>
     <nav>
@@ -104,10 +196,82 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h2>We Build the Future of Technology</h2>
     <p>Web Development • App Development • AI Automations</p>
     <a href="#contact" class="btn">Get in Touch</a>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h3>Our Services</h3>
+    <div class="services">
+      <div class="card"><h4>🌐 Web Development</h4><p>Responsive, modern, and scalable websites tailored for your business needs.</p></div>
+      <div class="card"><h4>📱 App Development</h4><p>Cross-platform mobile apps for iOS & Android with seamless user experience.</p></div>
+      <div class="card"><h4>🤖 AI Automations</h4><p>Leverage AI to automate workflows, save time, and boost productivity.</p></div>
+      <div class="card"><h4>☁️ Cloud Solutions</h4><p>Secure and scalable cloud integration for businesses of all sizes.</p></div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h3>Our Skills</h3>
+    <div class="skills">
+      <div class="card">HTML5 / CSS3 / JavaScript</div>
+      <div class="card">React.js / Next.js</div>
+      <div class="card">Node.js / Express.js</div>
+      <div class="card">Python / Django / Flask</div>
+      <div class="card">Java / Kotlin</div>
+      <div class="card">Swift (iOS)</div>
+      <div class="card">SQL / MongoDB / Firebase</div>
+      <div class="card">TensorFlow / PyTorch</div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 [Company Name]. All Rights Reserved.</p>
+  </footer>
+
+  <!-- WhatsApp Floating Icon -->
+  <a href="https://wa.me/916001675270" target="_blank" class="whatsapp-float">💬</a>
+
+  <!-- Script -->
+  <script>
+    // Show cards with fade-in when scrolling
+    const cards = document.querySelectorAll('.card');
+    const showOnScroll = () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          card.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    showOnScroll();
+
+    // Dummy form submission
+    function sendMessage(e) {
+      e.preventDefault();
+      alert("Thank you for contacting us! We'll get back to you soon.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
   </section>
 
   <section id="services">

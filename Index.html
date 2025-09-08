@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Coder | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="flex justify-center items-center px-6 py-4 bg-gray-900 fixed w-full top-0 shadow-lg z-50">
+    <h1 class="text-xl font-bold tracking-wide">Pranab <span class="text-purple-500">Sonowal</span></h1>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-6">
+    <h2 class="text-4xl md:text-6xl font-bold mb-4">Hey, I'm <span class="text-purple-500">Pranab Sonowal</span></h2>
+    <p class="text-lg text-gray-400 max-w-xl mb-6">A passionate developer who codes with vibe ⚡. I build clean, modern, and functional web apps.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="px-6 py-20 max-w-5xl mx-auto text-center fade-up">
+    <h3 class="text-3xl font-semibold mb-6">About Me</h3>
+    <p class="text-gray-400 leading-relaxed">I'm a vibe-driven coder who enjoys blending creativity with logic. Whether it's web apps, automation, or playful side projects, I bring energy and detail into everything I build. Always vibing, always shipping 🚀.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="px-6 py-20 max-w-5xl mx-auto text-center fade-up">
+    <h3 class="text-3xl font-semibold mb-10">Skills</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">HTML</div>
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">CSS / Tailwind</div>
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">JavaScript</div>
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">Python</div>
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">Node.js</div>
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">React</div>
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">MongoDB</div>
+      <div class="bg-gray-800 py-6 rounded-xl shadow-lg hover:scale-105 hover:bg-purple-600 transition-transform duration-300">Git</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="px-6 py-20 bg-gray-900 text-center fade-up">
+    <h3 class="text-3xl font-semibold mb-6">Contact Me</h3>
+    <p class="text-gray-400 mb-8">Let’s vibe and build something awesome together ✨</p>
+    <form action="#" method="POST" class="max-w-xl mx-auto space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500">
+      <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500">
+      <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500"></textarea>
+      <button type="submit" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl font-medium shadow-lg">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 bg-gray-950 border-t border-gray-800">
+    © 2025 Pranab Sonowal. All rights reserved.
+  </footer>
+
+  <!-- WhatsApp Floating Icon -->
+  <a href="https://wa.me/916001675270" target="_blank" class="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:bg-green-600 transition">
+    <i data-feather="message-circle" class="text-white"></i>
+  </a>
+
+  <script>
+    feather.replace();
+
+    // Scroll reveal effect
+    const faders = document.querySelectorAll('.fade-up');
+    const appearOptions = { threshold: 0.2 };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
